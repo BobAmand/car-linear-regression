@@ -34,19 +34,20 @@ The plot interupts the flow so 'commented-out' for now.
 print("Mileage alone is not a good predictor of price.")
 print("Only {0:.6f} of Price variance is captured in Mileage.".
       format(regr1.score(df[['Mileage']], df[['Price']])))
-
 print("The current model is insufficient to predict price.\n")
 
 fulldf = df[['Price', 'Mileage', 'Cylinder', 'Liter',
              'Doors', 'Cruise', 'Sound', 'Leather']]
-
 input = fulldf[['Mileage', 'Cylinder', 'Liter',
                 'Doors', 'Cruise', 'Sound', 'Leather']]
 output = fulldf['Price']
 
 regrm = linear_model.LinearRegression()
 regrm.fit(input, output)
-print("Coefficients for Mileage, Cylinder, Liter, Doors, Cruise, Sound, leather:\n")
+
+print("Coefficients for ")
+print("Mileage, Cylinder, Liter, Doors, Cruise, Sound, leather:")
+
 print(regrm.coef_)
 print("\n")
 print("Y-intercept = {0:.4f}".format(regrm.intercept_))
